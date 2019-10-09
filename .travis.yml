@@ -17,7 +17,7 @@ after_success:
   #Login to docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin"
   #Take images and push to docker.hub
-  -docker push sagim/multi-client
-  -docker push sagim/multi-nginx
-  -docker push sagim/multi-server
-  -docker push sagim/multi-worker
+  - docker push sagim/multi-client
+  - docker push sagim/multi-nginx
+  - docker push sagim/multi-server
+  - docker push sagim/multi-worker
