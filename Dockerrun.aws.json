@@ -1,40 +1,41 @@
 {
     "AWSEBDockerrunVersion": 2,
-    "containerDefinition": [
-        {
-            "name": "client",
-            "image": "sagim/multi-client",
-            "hostname": "client",
-            "essential": false,
-            "memory": 128
-        },
-        {
-            "name": "server",
-            "image": "sagim/multi-server",
-            "hostname": "api",
-            "essential": false,
-            "memory": 128
-        },
-        {
-            "name": "worker",
-            "image": "sagim/multi-worker",
-            "hostname": "worker",
-            "essential": false,
-            "memory": 128
-        },
-        {
-            "name": "nginx",
-            "image": "sagim/multi-nginx",
-            "hostname": "nginx",
-            "essential": true,
-            "memory": 128,
-            "portMappings": [
-                {
-                    "hostPort": 80,
-                    "containerPort": 80
-                }
-            ],
-            "linkes": ["client", "server"]
-        }
+    "containerDefinitions": [
+      {
+        "name": "client",
+        "image": "sagim/multi-client",
+        "hostname": "client",
+        "essential": false,
+        "memory": 128
+      },
+      {
+        "name": "server",
+        "image": "sagim/multi-server",
+        "hostname": "api",
+        "essential": false,
+        "memory": 128
+      },
+      {
+        "name": "worker",
+        "image": "sagim/multi-worker",
+        "hostname": "worker",
+        "essential": false,
+        "memory": 128
+      },
+      {
+        "name": "nginx",
+        "image": "sagim/multi-nginx",
+        "hostname": "nginx",
+        "essential": true,
+        "portMappings": [
+          {
+            "hostPort": 80,
+            "containerPort": 80
+          }
+        ],
+        "links": ["client", "server"],
+        "memory": 128
+      }
     ]
-}
+  }
+  
