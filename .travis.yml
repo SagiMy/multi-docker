@@ -21,3 +21,16 @@ after_success:
   - docker push sagim/multi-nginx
   - docker push sagim/multi-server
   - docker push sagim/multi-worker
+
+deploy:
+  provider: elasticbeanstalk
+  region: us-east-2
+  app: multi-docker
+  env: MultiDocker-env
+  bucket_name: elasticbeanstalk-us-east-2-763820116126
+  bucket_path: docker_multi
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key:
+    secure: $AWS_SWECRET_KEY
